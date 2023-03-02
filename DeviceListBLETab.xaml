@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CardioMeter.DeviceListBLETab">
+   
+    <ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+            
+            <Frame
+                BorderColor="Gray"
+                BackgroundColor="Transparent"
+                >
+                <StackLayout>
+                    <Label x:Name="BLEStatusLabel"></Label>
+                    <Button x:Name="BLEScanToggleBtn" Text="Start Scanning"></Button>
+                </StackLayout>
+            </Frame>
+            <CollectionView 
+                Grid.Row="1"
+                x:Name="DeviceCollectionView"
+                SelectionMode="Single"
+                SelectionChanged="OnDeviceCollectionViewSelectionChanged"
+                EmptyView="No Devices Found"
+            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2"
+                                   Source="fa_bluetooth_b.png"
+                                   Aspect="AspectFit"
+                                   HeightRequest="60"
+                                   WidthRequest="60"
+                                   />
+                            <Label Grid.Column="1"
+                                   Text="{Binding Name}"
+                                      FontAttributes="Bold"
+                                   />
+                            <Label Grid.Column="1"
+                                      Grid.Row="1"
+                                      Text="{Binding Id}"
+                                      />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
