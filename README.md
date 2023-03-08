@@ -13,3 +13,7 @@ A simple app to display real time heart rate from a Bluetooth LE heart rate moni
 ## License
 
 [Apache 2.0](LICENSE)
+
+## Screenshots
+
+![Screenshot](.github/Screenshot1.jpg)
